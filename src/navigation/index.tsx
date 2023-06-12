@@ -2,15 +2,14 @@ import React from 'react';
 import {StyleSheet, Text, View} from 'react-native';
 import {NavigationContainer} from '@react-navigation/native';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
-import {Provider} from 'react-redux';
-import {store} from './src/app/store';
-import {EventView} from './src/features/event/EventView';
+
+import {EventScreen} from '../screens/EventScreen';
 
 const HomeScreen = () => {
   return (
     <View style={styles.tabContainer}>
       <Text>Home!</Text>
-      <EventView />
+      <EventScreen />
     </View>
   );
 };
@@ -25,16 +24,14 @@ const SettingsScreen = () => {
 
 const Tab = createBottomTabNavigator();
 
-const App = (): JSX.Element => {
+export const Navigator = () => {
   return (
-    <Provider store={store}>
-      <NavigationContainer>
-        <Tab.Navigator>
-          <Tab.Screen name="Home" component={HomeScreen} />
-          <Tab.Screen name="Settings" component={SettingsScreen} />
-        </Tab.Navigator>
-      </NavigationContainer>
-    </Provider>
+    <NavigationContainer>
+      <Tab.Navigator>
+        <Tab.Screen name="Home" component={HomeScreen} />
+        <Tab.Screen name="Settings" component={SettingsScreen} />
+      </Tab.Navigator>
+    </NavigationContainer>
   );
 };
 
@@ -45,5 +42,3 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
 });
-
-export default App;

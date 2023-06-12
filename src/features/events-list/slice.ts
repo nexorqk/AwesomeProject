@@ -1,5 +1,5 @@
-import {createAsyncThunk, createSlice} from '@reduxjs/toolkit';
-import axios from 'axios';
+import {createSlice} from '@reduxjs/toolkit';
+import {fetchEvents} from './thunks';
 
 // interface EventData {}
 
@@ -9,13 +9,7 @@ const initialState = {
   error: '',
 };
 
-export const fetchEvents = createAsyncThunk('events/fetchEvents', async () => {
-  return axios
-    .get('https://api.github.com/events?per_page=25')
-    .then((response: any) => response.data);
-});
-
-const eventSlice = createSlice({
+export const eventSlice = createSlice({
   name: 'event',
   initialState,
   reducers: {},
@@ -35,5 +29,3 @@ const eventSlice = createSlice({
     });
   },
 });
-
-export default eventSlice.reducer;
