@@ -3,14 +3,14 @@ import {StyleSheet, Text, View} from 'react-native';
 import {NavigationContainer} from '@react-navigation/native';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import {Provider} from 'react-redux';
-import {store} from './src/redux/store';
-import Events from './src/components/Events';
+import {store} from './src/app/store';
+import {EventView} from './src/features/event/EventView';
 
 const HomeScreen = () => {
   return (
     <View style={styles.tabContainer}>
       <Text>Home!</Text>
-      <Events />
+      <EventView />
     </View>
   );
 };
