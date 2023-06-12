@@ -1,11 +1,16 @@
 import {createSlice} from '@reduxjs/toolkit';
 import {fetchEvents} from './thunks';
+import {EventData} from './types';
 
-// interface EventData {}
+interface IState {
+  loading: boolean;
+  events: EventData[];
+  error: string;
+}
 
-const initialState = {
+const initialState: IState = {
   loading: false,
-  events: [], //as EventData[]
+  events: [],
   error: '',
 };
 

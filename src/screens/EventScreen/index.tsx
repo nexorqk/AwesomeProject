@@ -1,5 +1,5 @@
 import React, {useEffect} from 'react';
-import {FlatList, Text} from 'react-native';
+import {FlatList, StyleSheet, Text, View} from 'react-native';
 
 import {useAppDispatch, useAppSelector} from '../../store/storeHooks';
 import {fetchEvents} from '../../features/events-list';
@@ -11,14 +11,24 @@ export const EventScreen = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  const events: any = useAppSelector(state => state.events);
+  const events = useAppSelector(state => state.events);
 
   return (
     <FlatList
       refreshing={events.loading}
       ListHeaderComponent={<Text>{events.error}</Text>}
       data={events.events}
-      renderItem={({item}) => <Text>{item.repo.name}</Text>}
+      renderItem={({item}) => (
+        <View style={styles.itemContainer}>
+          <Text>{item.repo.name}</Text>
+        </View>
+      )}
     />
   );
 };
+
+const styles = StyleSheet.create({
+  itemContainer: {
+    margin: 10,
+  },
+});
