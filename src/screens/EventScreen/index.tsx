@@ -2,7 +2,7 @@ import React, {useEffect} from 'react';
 import {FlatList, Text} from 'react-native';
 
 import {useAppDispatch, useAppSelector} from '../../store/storeHooks';
-import {fetchEvents} from '../../features/events-list/slice';
+import {fetchEvents} from '../../features/events-list';
 
 export const EventScreen = () => {
   const dispatch = useAppDispatch();
