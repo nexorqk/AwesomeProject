@@ -2,7 +2,7 @@ import React from 'react';
 import {Button, StyleSheet, View} from 'react-native';
 import {COLORS, ROUTES} from '../../../constants';
 
-export const EventItem = ({item, navigation}) => {
+export const EventItem = ({item, navigation}: any) => {
   return (
     <View style={styles.itemContainer}>
       <Button
